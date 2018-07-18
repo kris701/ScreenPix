@@ -1,0 +1,9 @@
+C:\Users\kris7\OneDrive\Programming stuff\C#\Finished Projects\screenpix 2.0\screenpix 2.0\bin\Debug\ScreenPix.exe.config
+C:\Users\kris7\OneDrive\Programming stuff\C#\Finished Projects\screenpix 2.0\screenpix 2.0\bin\Debug\ScreenPix.exe
+C:\Users\kris7\OneDrive\Programming stuff\C#\Finished Projects\screenpix 2.0\screenpix 2.0\bin\Debug\ScreenPix.pdb
+C:\Users\kris7\OneDrive\Programming stuff\C#\Finished Projects\screenpix 2.0\screenpix 2.0\obj\Debug\ScreenPixNameSpace._0.MainForm.resources
+C:\Users\kris7\OneDrive\Programming stuff\C#\Finished Projects\screenpix 2.0\screenpix 2.0\obj\Debug\ScreenPixNamespace.Properties.Resources.resources
+C:\Users\kris7\OneDrive\Programming stuff\C#\Finished Projects\screenpix 2.0\screenpix 2.0\obj\Debug\ScreenPix.csproj.GenerateResource.cache
+C:\Users\kris7\OneDrive\Programming stuff\C#\Finished Projects\screenpix 2.0\screenpix 2.0\obj\Debug\ScreenPix.csproj.CoreCompileInputs.cache
+C:\Users\kris7\OneDrive\Programming stuff\C#\Finished Projects\screenpix 2.0\screenpix 2.0\obj\Debug\ScreenPix.exe
+C:\Users\kris7\OneDrive\Programming stuff\C#\Finished Projects\screenpix 2.0\screenpix 2.0\obj\Debug\ScreenPix.pdb
