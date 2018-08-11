@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Drawing;
 using System.Drawing.Imaging;
-using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using System.Threading.Tasks;
 
@@ -11,14 +10,10 @@ namespace ScreenPixNameSpace._0
     {
         #region Variabels
 
-        [DllImport("gdi32.dll", CharSet = CharSet.Auto, SetLastError = true, ExactSpelling = true)]
-        public static extern int BitBlt(IntPtr hDC, int x, int y, int nWidth, int nHeight, IntPtr hSrcDC, int xSrc, int ySrc, int dwRop);
-
         Bitmap ImageWindow = new Bitmap( 50, 50, PixelFormat.Format32bppArgb);
         Point Pointer = new Point();
         Pen BlackPen = new Pen(Color.Black, 1);
         Graphics GFXScreenshot;
-        Bitmap ScreenPixelColor = new Bitmap(1, 1, PixelFormat.Format32bppArgb);
 
         #endregion
 
@@ -31,9 +26,10 @@ namespace ScreenPixNameSpace._0
         {
             while (true)
             {
+                Bitmap ScreenImage = GenerateBitMap();
                 ImageWindowPictureBox.Image = GenerateBitMap();
 
-                var Color = GetColorAt(Cursor.Position);
+                var Color = ScreenImage.GetPixel(ScreenImage.Width / 2, ScreenImage.Height / 2);
 
                 ColorLabel.Text =
                     "Red: " + Color.R.ToString() +
@@ -77,23 +73,6 @@ namespace ScreenPixNameSpace._0
             }
             GFXScreenshot.Dispose();
             return ImageWindow;
-        }
-
-        public Color GetColorAt(Point _Location)
-        {
-            using (Graphics GraphicsDestination = Graphics.FromImage(ScreenPixelColor))
-            {
-                using (Graphics GraphicsSource = Graphics.FromHwnd(IntPtr.Zero))
-                {
-                    IntPtr ScreenDC = GraphicsSource.GetHdc();
-                    IntPtr HDC = GraphicsDestination.GetHdc();
-                    int retval = BitBlt(HDC, 0, 0, 1, 1, ScreenDC, _Location.X, _Location.Y, (int)CopyPixelOperation.SourceCopy);
-                    GraphicsDestination.ReleaseHdc();
-                    GraphicsSource.ReleaseHdc();
-                }
-            }
-
-            return ScreenPixelColor.GetPixel(0, 0);
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
