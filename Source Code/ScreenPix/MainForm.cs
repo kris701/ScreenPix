@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.Windows.Forms;
 using System.Threading.Tasks;
+using NDX_Base;
 
 namespace ScreenPixNameSpace._0
 {
@@ -14,12 +15,22 @@ namespace ScreenPixNameSpace._0
         Point Pointer = new Point();
         Pen BlackPen = new Pen(Color.Black, 1);
         Graphics GFXScreenshot;
+        NDX CustomGraphics;
 
         #endregion
 
         public MainForm()
         {
             InitializeComponent();
+            CustomGraphics = new NDX(this);
+            CustomGraphics.Sizable = false;
+            CustomGraphics.DoubleClickToMaximize = false;
+            CustomGraphics.AutoScroll = false;
+            CustomGraphics.HasMaxButton = false;
+            CustomGraphics.DragbarBackColor = Color.FromArgb(200,200,200);
+            CustomGraphics.ParentFormDragStyle = NDXDragStyle.Opacity;
+            CustomGraphics.TitleTextColor = Color.Black;
+            CustomGraphics.InitializeNDX();
         }
 
         private async void MainForm_Load(object sender, EventArgs e)
