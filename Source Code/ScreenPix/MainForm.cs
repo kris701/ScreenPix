@@ -37,25 +37,32 @@ namespace ScreenPixNameSpace._0
         {
             while (true)
             {
-                Bitmap ScreenImage = GenerateBitMap();
-                ImageWindowPictureBox.Image = GenerateBitMap();
+                try
+                {
+                    Bitmap ScreenImage = GenerateBitMap();
+                    ImageWindowPictureBox.Image = GenerateBitMap();
 
-                var Color = ScreenImage.GetPixel(ScreenImage.Width / 2, ScreenImage.Height / 2);
+                    var Color = ScreenImage.GetPixel(ScreenImage.Width / 2, ScreenImage.Height / 2);
 
-                ColorLabel.Text =
-                    "Red: " + Color.R.ToString() +
-                    Environment.NewLine +
-                    "Green: " + Color.G.ToString() +
-                    Environment.NewLine +
-                    "Blue: " + Color.B.ToString();
-                PositionLabel.Text =
-                    "X: " + Cursor.Position.X +
-                    Environment.NewLine +
-                    "Y: " + Cursor.Position.Y;
+                    ColorLabel.Text =
+                        "Red: " + Color.R.ToString() +
+                        Environment.NewLine +
+                        "Green: " + Color.G.ToString() +
+                        Environment.NewLine +
+                        "Blue: " + Color.B.ToString();
+                    PositionLabel.Text =
+                        "X: " + Cursor.Position.X +
+                        Environment.NewLine +
+                        "Y: " + Cursor.Position.Y;
 
-                ColorShowPanel.BackColor = Color.FromArgb(Color.R, Color.G, Color.B);
+                    ColorShowPanel.BackColor = Color.FromArgb(Color.R, Color.G, Color.B);
 
-                await Task.Delay(10);
+                    await Task.Delay(10);
+                }
+                catch
+                {
+
+                }
             }
         }
 
